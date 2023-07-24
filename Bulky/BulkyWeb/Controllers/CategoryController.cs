@@ -17,5 +17,10 @@ namespace BulkyWeb.Controllers
 
             return View(objCatagoryList);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
+
 }
