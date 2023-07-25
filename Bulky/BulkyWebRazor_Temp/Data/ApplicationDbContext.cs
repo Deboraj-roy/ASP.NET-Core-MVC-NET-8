@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BulkyWebRazor_Temp.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Reflection.Emit;
 
 namespace BulkyWebRazor_Temp.Data
