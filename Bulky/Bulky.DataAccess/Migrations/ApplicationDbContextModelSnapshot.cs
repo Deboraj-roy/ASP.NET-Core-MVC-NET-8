@@ -21,7 +21,7 @@ namespace Bulky.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BulkyWeb.Models.Category", b =>
+            modelBuilder.Entity("Bulky.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,8 @@ namespace Bulky.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -57,6 +58,12 @@ namespace Bulky.DataAccess.Migrations
                         {
                             Id = 3,
                             DisplayOrder = 3,
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DisplayOrder = 4,
                             Name = "History"
                         });
                 });
