@@ -27,7 +27,7 @@
                     <th>Price </th>
                     <th>Author </th>
                     <th>Category </th>
-                    <th></th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +43,10 @@
                         </td>
                         <td>
                             @obj.Author
+                        </td>
+                        <td>@* 
+                            @obj.CategoryId.ToString() *@
+                            @obj.Category.Id
                         </td>
                         <td>
                             <div class="w-75 btn-group" role="group">
