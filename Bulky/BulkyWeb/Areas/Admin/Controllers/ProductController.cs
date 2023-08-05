@@ -63,7 +63,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 {
                     file.CopyTo(fileStream);
                 }
-                productVM.Product.ImageUrl = @"\images\product" + fileName;
+                productVM.Product.ImageUrl = @"\images\product\" + fileName;
             }
             if (ModelState.IsValid)
             {
