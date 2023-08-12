@@ -114,6 +114,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             return Json(new { data = objProductList });
 
         }
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             var productToBeDeleted = _unitOfWork.Product.Get(u=>u.Id == id);
@@ -133,7 +134,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             _unitOfWork.Product.Remove(productToBeDeleted);
             _unitOfWork.Save();
 
-            return Json(new { success = true, Message = "Delete Successful" });
+            return Json(new { success = true, message = "Delete Successful" });
         }
         #endregion
     }
