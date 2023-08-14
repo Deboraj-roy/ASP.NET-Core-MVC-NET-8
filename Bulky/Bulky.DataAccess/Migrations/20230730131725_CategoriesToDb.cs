@@ -7,7 +7,7 @@
 namespace BulkyBook.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryTabletoSeedTable : Migration
+    public partial class CategoriesToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
