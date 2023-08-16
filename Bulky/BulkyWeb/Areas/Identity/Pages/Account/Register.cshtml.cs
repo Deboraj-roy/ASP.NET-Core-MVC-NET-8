@@ -172,8 +172,13 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
                 user.Name = Input.Name;
                 user.State = Input.State;
                 user.PostalCode = Input.PostalCode;
-                user.PhoneNumber = Input.PhoneNumber; 
-                
+                user.PhoneNumber = Input.PhoneNumber;
+
+                if (Input.Role == SD.Role_Company)
+                {
+                    user.CompanyId = Input.CompanyId;
+                }
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -189,6 +194,9 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, SD.Role_Customer);
                     }
+
+                    TempData["success"] = "Company Registered successfully";
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
