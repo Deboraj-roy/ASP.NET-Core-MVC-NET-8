@@ -4,6 +4,7 @@ using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
@@ -70,8 +71,21 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll(string status)
         {
-            IEnumerable<OrderHeader> objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
+            IEnumerable<OrderHeader> objOrderHeaders;
+            
+            if (User.IsInRole(SD.Role_Admin) || (User.IsInRole(SD.Role_Employee)))
+            {
+                objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
 
+            }
+            else
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                objOrderHeaders = _unitOfWork.OrderHeader
+                    .GetAll(u => u.ApplicationUserId == userId, includeProperties: "ApplicationUser");
+            }
 
             switch (status)
             {
