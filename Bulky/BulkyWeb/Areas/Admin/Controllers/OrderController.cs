@@ -8,10 +8,10 @@ using System.Security.Claims;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers
 {
-	[Area("admin")]
-	public class OrderController : Controller
-	{
-		private readonly IUnitOfWork _unitOfWork; 
+    [Area("admin")]
+    public class OrderController : Controller
+    {
+        private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public OrderVM OrderVM { get; set; }
 
@@ -30,7 +30,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             OrderVM = new()
             {
                 OrderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == orderId, includeProperties: "ApplicationUser"),
-                OrderDetail = _unitOfWork.OrderDetail.GetAll(u =>u.OrderHeaderId == orderId, includeProperties: "Product")
+                OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderHeaderId == orderId, includeProperties: "Product")
             };
             return View(OrderVM);
         }
@@ -72,7 +72,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         public IActionResult GetAll(string status)
         {
             IEnumerable<OrderHeader> objOrderHeaders;
-            
+
             if (User.IsInRole(SD.Role_Admin) || (User.IsInRole(SD.Role_Employee)))
             {
                 objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
@@ -109,7 +109,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
             return Json(new { data = objOrderHeaders });
         }
-		#endregion
+        #endregion
 
-	}
+    }
 }
