@@ -191,6 +191,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 					_unitOfWork.Save();
 				}
 
+				HttpContext.Session.Clear();
 
 			}
 
