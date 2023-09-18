@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'BulkybookStore'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3989B47148C8473ABE381285298E5B6A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C023722D1A16415BBD10EABF3EFF0CEF }}
           package: .
