@@ -3,6 +3,7 @@ using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 using System.Security.Claims;
@@ -16,15 +17,17 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 	{
 
 		private readonly IUnitOfWork _unitOfWork;
-		[BindProperty]
+        private readonly IEmailSender _emailSender;
+        [BindProperty]
 		public ShoppingCartVM ShoppingCartVM { get; set; }
-		public CartController(IUnitOfWork unitOfWork)
-		{
-			_unitOfWork = unitOfWork;
-		}
+        public CartController(IUnitOfWork unitOfWork, IEmailSender emailSender)
+        {
+            _unitOfWork = unitOfWork;
+            _emailSender = emailSender;
+        }
 
 
-		public IActionResult Index()
+        public IActionResult Index()
 		{
 
 			var claimsIdentity = (ClaimsIdentity)User.Identity;
