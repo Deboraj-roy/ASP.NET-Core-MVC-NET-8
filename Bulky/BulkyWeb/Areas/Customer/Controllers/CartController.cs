@@ -131,11 +131,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
 			if (applicationUser.CompanyId.GetValueOrDefault() == 0)
 			{
+				
 				//it is a regular customer account and we need to capture payment
 				//stripe logic
-
-				//it is a regular customer account and we need to capture payment
-				//stripe logic
+				
 				var domain = Request.Scheme + "://" + Request.Host.Value + "/";
 				var options = new SessionCreateOptions
 				{
