@@ -36,7 +36,7 @@ The course delves into fundamental concepts and gradually progresses towards bui
 
 ## Live Project
 
-Check out the live version of the (E-Commerce App) ASP.NET MVC project: [E-Commerce App](https://bulkybookwebbydeb.azurewebsites.net/)
+Check out the live version of the (E-Commerce App) ASP.NET MVC project: [E-Commerce App](https://plumwillyt.bsite.net/)
 
 ## Section Breakdown (Timestamps)
 
