@@ -36,7 +36,9 @@ The course delves into fundamental concepts and gradually progresses towards bui
 
 ## Live Project
 
-Check out the live version of the (E-Commerce App) ASP.NET MVC project: [E-Commerce App](https://bookstoredeb.somee.com/)
+Check out the live version of the (E-Commerce App) ASP.NET MVC project: 
+[E-Commerce App Link 1](https://bookstoredeb.runasp.net/) Or
+[E-Commerce App Link 2](https://bookstoredeb.runasp.net/)
 
 ## Section Breakdown (Timestamps)
 
